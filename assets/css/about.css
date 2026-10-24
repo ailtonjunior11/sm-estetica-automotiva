@@ -1,0 +1,64 @@
+/* --- SOBRE E DIFERENCIAIS --- */
+.section-about {
+  background: var(--color-background);
+}
+
+.about-heading {
+  display: grid;
+  grid-template-columns: 1fr 0.75fr;
+  column-gap: 60px;
+  align-items: end;
+  margin-bottom: 50px;
+}
+
+.about-heading .eyebrow {
+  grid-column: 1 / -1;
+}
+
+.about-heading h2 {
+  max-width: 560px;
+}
+
+.about-heading > p:not(.eyebrow) {
+  margin-top: 0;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.feature-card {
+  min-height: 190px;
+  padding: 28px 25px;
+  border-right: 1px solid var(--color-border);
+}
+
+.feature-card:first-child {
+  padding-left: 0;
+}
+
+.feature-card:last-child {
+  border-right: 0;
+}
+
+.feature-icon {
+  color: var(--color-gold-light);
+  font-size: 23px;
+  line-height: 1;
+}
+
+.feature-card h3 {
+  margin-top: 19px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.feature-card p {
+  margin-top: 8px;
+  color: var(--color-muted);
+  font-size: 11px;
+  line-height: 1.7;
+}

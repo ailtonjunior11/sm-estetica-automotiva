@@ -1,0 +1,57 @@
+/* --- DÚVIDAS FREQUENTES --- */
+.section-faq {
+  background: var(--color-background);
+}
+
+.faq-layout {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 90px;
+}
+
+.faq-heading .text-link {
+  display: inline-block;
+  margin-top: 25px;
+}
+
+.faq-list details {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+}
+
+.faq-list details:first-child {
+  border-top: 1px solid rgba(255, 255, 255, 0.13);
+}
+
+.faq-list summary {
+  position: relative;
+  padding: 20px 34px 20px 0;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  list-style: none;
+}
+
+.faq-list summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-list summary::after {
+  position: absolute;
+  top: 17px;
+  right: 2px;
+  color: var(--color-gold-light);
+  content: "+";
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.faq-list details[open] summary::after {
+  content: "−";
+} /* A função desse código é controlar a exibição do sinal de mais ou menos ao abrir/fechar os detalhes */
+
+.faq-list details p {
+  max-width: 600px;
+  padding: 0 30px 20px 0;
+  color: var(--color-muted);
+  font-size: 12px;
+}
