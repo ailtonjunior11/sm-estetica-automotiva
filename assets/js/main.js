@@ -8,7 +8,7 @@ function setMenuOpen(isOpen) {
   menuToggle.setAttribute("aria-expanded", String(isOpen));
   menuToggle.setAttribute("aria-label", isOpen ? "Fechar menu" : "Abrir menu");
   mainNav.classList.toggle("is-open", isOpen);
-} // Função para abrir ou fechar o menu, dependendo do estado atual do menu. A função recebe um parâmetro booleano isOpen, que indica se o menu deve ser aberto (true) ou fechado (false). Ela atualiza os atributos aria-expanded e aria-label do botão de alternância do menu, e adiciona ou remove a classe is-open no elemento de navegação principal. 
+} // Função para abrir ou fechar o menu, dependendo do estado atual do menu. A função recebe um parâmetro booleano isOpen, que indica se o menu deve ser aberto (true) ou fechado (false). Ela atualiza os atributos aria-expanded e aria-label do botão de alternância do menu, e adiciona ou remove a classe is-open no elemento de navegação principal.
 
 menuToggle.addEventListener("click", () => {
   setMenuOpen(menuToggle.getAttribute("aria-expanded") !== "true");
@@ -21,7 +21,10 @@ mainNav.addEventListener("click", (event) => {
 }); // Adiciona um ouvinte de evento de clique ao elemento de navegação principal. Se o alvo do clique for um link (elemento <a>), a função setMenuOpen é chamada com o valor false, fechando o menu.
 
 document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape" && menuToggle.getAttribute("aria-expanded") === "true") {
+  if (
+    event.key === "Escape" &&
+    menuToggle.getAttribute("aria-expanded") === "true"
+  ) {
     setMenuOpen(false);
     menuToggle.focus();
   }
@@ -32,3 +35,28 @@ window.addEventListener("resize", () => {
     setMenuOpen(false);
   }
 }); // Adiciona um ouvinte de evento de redimensionamento da janela. Se a largura da janela for maior ou igual a 981 pixels, a função setMenuOpen é chamada com o valor false, fechando o menu. Isso garante que o menu seja fechado quando a tela for redimensionada para um tamanho maior, onde o menu pode ser exibido de forma diferente.
+
+// config video background
+const video = document.querySelector("#hero-video");
+
+video.addEventListener("ended", function () {
+  // Desaparece suavemente
+  video.style.opacity = "0";
+
+  setTimeout(function () {
+    // Volta ao início
+    video.currentTime = 0;
+
+    // Aguarda o primeiro quadro ficar disponível
+    video.addEventListener(
+      "seeked",
+      function () {
+        video.play();
+
+        // Reaparece suavemente
+        video.style.opacity = "1";
+      },
+      { once: true },
+    );
+  }, 700);
+});
